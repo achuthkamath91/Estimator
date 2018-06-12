@@ -115,7 +115,7 @@ Task : The prediction step should include the state update element (PredictState
 
 This video is [08_sim.mp4](./videos/08_sim.mp4)
 
-The second part we update the covariance matrix and finish the EKF state using the equations on the Estimation for Quadrotors paper provided by Udacity. The important section is 7.2 Transition Model. The matrixes are big, but it is a matter of being careful when creating them in the code. Without modifying the code, we have this data:
+The second part we update the covariance matrix and finish the EKF state using the equations on the Estimation for Quadrotors paper provided by Udacity. The important section is 7.2 Transition Model. The matrixes are big, but it is a matter of being careful when creating them in the code.
 
 ![08_sim2](./images/08_sim2.gif)
 
@@ -123,29 +123,34 @@ The second part we update the covariance matrix and finish the EKF state using t
 
 Task: The update should properly include the magnetometer data into the state. Note that the solution should make sure to correctly measure the angle error between the current state and the magnetometer value (error should be the short way around, not the long way).
 
+![09_sim](./images/09_sim.gif)
+
 In this step, we need to update the state with the magnetometer measurement. Without code modifications, we have this data:
 
-To implement the update, we need to use the equations from section 7.3.2 Magnetometer from the Estimation for Quadrotors paper. After it is implemented, we received this data:
+To implement the update, we need to use the equations from section 7.3.2 Magnetometer from the Estimation for Quadrotors paper.
 
 You can see there the yaw error decrease, and the sigma remained stable. Here is a scenario video:
 
-This video is scenario4.mov. When the scenario is passing the test, you should see this line on the standard output:
+This video is [09_sim.mp4](./videos/09_sim.mp4). When the scenario is passing one test need future assistance regarding this problem
 ```
-PASS: ABS(Quad.Est.E.Yaw) was less than 0.120000 for at least 10.000000 seconds
-PASS: ABS(Quad.Est.E.Yaw-0.000000) was less than Quad.Est.S.Yaw for 67% of the time
+FAIL: ABS(Quad.Est.E.Yaw) was less than 0.120000 for 7.054035 seconds, which was less than 10.000000 seconds
+PASS: ABS(Quad.Est.E.Yaw-0.000000) was less than Quad.Est.S.Yaw for 63% of the time
 ```
 
 ### Step 5: GPS update ###
 
 Task: The estimator should correctly incorporate the GPS information to update the current state estimate.
 
-The last step before to finish the EKF implementation: GPS Update. After eliminating the ideal estimator of the code without any code modification, we have this data:
+The last step before to finish the EKF implementation: GPS Update. After eliminating the ideal estimator of the code without any code modification.
+![10_gps1](./images/10_gps1.gif)
 
 This video is scenario5-wild.mov.
 
-To implement this update, we need to use the equations from section 7.3.1 GPS from the Estimation for Quadrotors paper. After it is implemented, we received this data:
+To implement this update, we need to use the equations from section 7.3.1 GPS from the Estimation for Quadrotors paper. After it is implemented.
 
-This video is scenario5.mov. When the scenario is passing the test, you should see this line on the standard output:
+![10_gps2](./images/10_gps2.gif)
+
+This video is [10_sim.mp4](./videos/10_sim.mp4). When the scenario is passing the test, you should see this line on the standard output:
 ```
 PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
 ```
@@ -153,8 +158,7 @@ PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
 ### Step 6: Controller ###
 The last step! You need to put the control and parameters from the last project and see how it behaves in a noisy scenario. I was luc
 ky enough not to have to tune the control again. I guess the control parameters were "relaxed" already. After adding both files, we received this data:
-
-This video is scenario6.mov. When the scenario is passing the test, you should see this line on the standard output:
+![11_controll](./images/11_controll.gif)
 ```
 PASS: ABS(Quad.Est.E.Pos) was less than 1.000000 for at least 20.000000 seconds
 ```

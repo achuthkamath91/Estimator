@@ -47,3 +47,26 @@ For Linux, the recommended IDE is QtCreator.
 1. Download and install QtCreator.
 2. Open the `.pro` file from the `<simulator>/project` directory.
 3. Compile and run the project (using the tab `Build` select the `qmake` option.  You should see a single quadcopter, falling down.
+
+
+
+## Udacity Flying Car Nanodegree - Term 1 - Project 4 - 3D Quadrotor Estimation ##
+
+## Project Setup
+
+This project will continue to use the C++ development environment you set up in the Controls C++ project.
+
+    Clone the repository
+
+git clone https://github.com/udacity/FCND-Estimation-CPP.git
+
+    Import the code into your IDE like done in the Controls C++ project
+
+    You should now be able to compile and run the estimation simulator just as you did in the controls project
+
+
+## Run the code ##
+The project consists of six scenarios where most of the missing parts of the EKF needs to be implemented and tested.
+# Step 1: Sensor noise #
+
+It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.

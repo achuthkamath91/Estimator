@@ -13,8 +13,7 @@ For easy navigation throughout this document, here is an outline:
 
  - [Development environment setup](#development-environment-setup)
  - [Simulator walkthrough](#simulator-walkthrough)
- - [The tasks](#the-tasks)
- - [Evaluation](#evaluation)
+ - [Tasks](#tasks)
 
 
 ## Development Environment Setup ##
@@ -75,7 +74,7 @@ git clone https://github.com/udacity/FCND-Estimation-CPP.git
 ## Run the code ##
 The project consists of six scenarios where most of the missing parts of the EKF needs to be implemented and tested.
 
-## The tasks ##
+## Tasks ##
 ### Step 1: Sensor noise ###
 
 It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.<br/>
@@ -141,7 +140,8 @@ PASS: ABS(Quad.Est.E.Yaw-0.000000) was less than Quad.Est.S.Yaw for 63% of the t
 
 Task: The estimator should correctly incorporate the GPS information to update the current state estimate.
 
-The last step before to finish the EKF implementation: GPS Update. After eliminating the ideal estimator of the code without any code modification.
+The last step before to finish the EKF implementation: GPS Update. After eliminating the ideal estimator of the code without any code modification.<br/>
+
 ![10_gps1](./images/10_gps1.gif)
 
 This video is scenario5-wild.mov.

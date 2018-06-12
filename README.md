@@ -78,7 +78,8 @@ The project consists of six scenarios where most of the missing parts of the EKF
 ## The tasks ##
 ### Step 1: Sensor noise ###
 
-It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.
+It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.<br/>
+
 ![Sensor Noise](./images/06_noise.gif)
 
 This video is [06_noise.mp4](./videos/06_noise.mp4). When the scenario is passing the test, you should see this line on the standard output:
@@ -91,17 +92,17 @@ PASS: ABS(Quad.IMU.AX-0.000000) was less than MeasuredStdDev_AccelXY for 69% of 
 
 Task : The improved integration scheme should result in an attitude estimator of < 0.1 rad for each of the Euler angles for a duration of at least 3 seconds during the simulation. The integration scheme should use quaternions to improve performance over the current simple integration scheme.
 
-Approach - In this step, we need to include information from the IMU to the state. There is a few code provided by us there. The only thing we need to do is to integrate pqr from the gyroscope into the estimated pitch and roll. The implementation provided linear. The following figure illustrates the data we get with that implementation:
+Approach - In this step, we need to include information from the IMU to the state. There is a few code provided by us there. The only thing we need to do is to integrate ```pqr``` from the gyroscope into the estimated pitch and roll. The implementation provided linear. The following figure illustrates the data we get with that implementation:
 
 ![Attitude](./images/07_attitude.gif)
 
 We need to implement a non-linear one to get better results. First, we need to find the roll, pitch and yaw derivates using the following equation from the control lectures:
 
-![equation](./images/07_equations.jpeg)
+![equation](./images/07_equations.png)
 
 Once we have the derivates, we can multiply them by dt to approximate the integral. The following is a more detail graph after the non-linear integration
 
-This video is [07_attitude.mp4](./videos/07_attitude.mp4). When the scenario is passing the test, you should see this line on the standard output:
+This video is [07_attitude.mp4](./videos/07_attitude.mp4). When the scenario is passing the output would produce
 ```
 PASS: ABS(Quad.Est.E.MaxEuler) was less than 0.100000 for at least 3.000000 seconds
 ```
@@ -110,10 +111,13 @@ PASS: ABS(Quad.Est.E.MaxEuler) was less than 0.100000 for at least 3.000000 seco
 
 Task : The prediction step should include the state update element (PredictState() function), a correct calculation of the Rgb prime matrix, and a proper update of the state covariance. The acceleration should be accounted for as a command in the calculation of gPrime. The covariance update should follow the classic EKF update equation.
 
-This video is scenario3-part1.mov.
+![08_sim1](./images/08_sim1.gif)
+
+This video is [08_sim.mp4](./videos/08_sim.mp4)
 
 The second part we update the covariance matrix and finish the EKF state using the equations on the Estimation for Quadrotors paper provided by Udacity. The important section is 7.2 Transition Model. The matrixes are big, but it is a matter of being careful when creating them in the code. Without modifying the code, we have this data:
 
+![08_sim2](./images/08_sim2.gif)
 
 ### Step 4: Magnetometer update ###
 

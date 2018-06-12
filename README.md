@@ -81,12 +81,11 @@ The project consists of six scenarios where most of the missing parts of the EKF
 It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.
 ![Sensor Noise](./images/06_noise.gif)
 
-This video is [noise.mp4](./videos/noise.mp4). When the scenario is passing the test, you should see this line on the standard output:
+This video is [06_noise.mp4](./videos/06_noise.mp4). When the scenario is passing the test, you should see this line on the standard output:
 ```
 PASS: ABS(Quad.GPS.X-Quad.Pos.X) was less than MeasuredStdDev_GPSPosXY for 70% of the time
 PASS: ABS(Quad.IMU.AX-0.000000) was less than MeasuredStdDev_AccelXY for 69% of the time
 ```
-The notebook used to calculate this values is Step 1 Sensor Noise.
 
 ### Step 2: Altitude Estimator ###
 
@@ -94,14 +93,15 @@ Task : The improved integration scheme should result in an attitude estimator of
 
 Approach - In this step, we need to include information from the IMU to the state. There is a few code provided by us there. The only thing we need to do is to integrate pqr from the gyroscope into the estimated pitch and roll. The implementation provided linear. The following figure illustrates the data we get with that implementation:
 
+![Attitude](./images/07_attitude.gif)
 
 We need to implement a non-linear one to get better results. First, we need to find the roll, pitch and yaw derivates using the following equation from the control lectures:
 
-Step 2 equations
+![equation](./images/07_equations.jpeg)
 
 Once we have the derivates, we can multiply them by dt to approximate the integral. The following is a more detail graph after the non-linear integration
 
-This video is scenario2.mov. When the scenario is passing the test, you should see this line on the standard output:
+This video is [07_attitude.mp4](./videos/07_attitude.mp4). When the scenario is passing the test, you should see this line on the standard output:
 ```
 PASS: ABS(Quad.Est.E.MaxEuler) was less than 0.100000 for at least 3.000000 seconds
 ```

@@ -79,8 +79,9 @@ The project consists of six scenarios where most of the missing parts of the EKF
 ### Step 1: Sensor noise ###
 
 It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.
+![Sensor Noise](./images/06_noise.gif)
 
-This video is noise.mp4. When the scenario is passing the test, you should see this line on the standard output:
+This video is [noise.mp4](./videos/noise.mp4). When the scenario is passing the test, you should see this line on the standard output:
 ```
 PASS: ABS(Quad.GPS.X-Quad.Pos.X) was less than MeasuredStdDev_GPSPosXY for 70% of the time
 PASS: ABS(Quad.IMU.AX-0.000000) was less than MeasuredStdDev_AccelXY for 69% of the time

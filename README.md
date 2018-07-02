@@ -78,7 +78,8 @@ The project consists of six scenarios where most of the missing parts of the EKF
 ### Step 1: Sensor noise ###
 
 It is step 1 here, but this code contains all the code from the control project as well; so, it is scenario 06_SensorNoise. The simulator will generate two files with GPS and IMU measurements. The task is to process those files and calculate the standard deviation(sigma) for those sensors.<br/>
-
+Method Used for SD:  In this simulation, the interest is to record some sensor data on a static quad, so you will not see the quad move. You will see two plots at the bottom, one for GPS X position and one for The accelerometer's x measurement. The dashed lines are a visualization of a single standard deviation from 0 for each signal. The standard deviations are initially set to arbitrary values (after processing the data in the next step, you will be adjusting these values). If they were set correctly, we should see ~68% of the measurement points fall into the +/- 1 sigma bound. When you run this scenario, the graphs you see will be recorded to the following csv files with headers: config/log/Graph1.txt (GPS X data) and config/log/Graph2.txt (Accelerometer X data). Process the logged files to figure out the standard deviation of the the GPS X signal and the IMU Accelerometer X signal. Add the results in 6_sensornoise.txt
+	
 ![Sensor Noise](./images/06_noise.gif)
 
 This video is [06_noise.mp4](./videos/06_noise.mp4). When the scenario is passing the test, you should see this line on the standard output:
